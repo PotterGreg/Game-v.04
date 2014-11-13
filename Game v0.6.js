@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-
-<!--  Gregory James Potter
-      Introduction to Programming
-      Alan Labouseur
-      Project 2 game v0.2   -->
-
-<html>
-  <head>
-    <title> Indiana Jones Text Adventure </title>
-      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-      <script type="text/javascript">
-        
         var currLoc = 0;
         var Score = 0;
         var hasVisitedRoom0 = false;
@@ -19,7 +6,15 @@
         var hasVisitedRoom3 = false;
         var hasVisitedRoom4 = false;
         var hasVisitedRoom5 = false;
-        
+        var hasVisitedRoom6 = false;
+        var hasVisitedRoom7 = false;
+        var hasVisitedRoom8 = false;
+        var hasVisitedRoom9 = false;
+        var torch = false;
+        var vine = false;
+        var whip = false;
+        var chalace = false;
+
         function init() { 
             look();
         }
@@ -28,16 +23,22 @@
           var userCommand = document.getElementById("userInput").value;
           if (userCommand === "N" || userCommand === "n") { 
             btnNorth_click();
-        }  else if (userCommand === "S" || userCommand === "s") {
+        } else if (userCommand === "S" || userCommand === "s") {
             btnSouth_click();
         } else if (userCommand === "E" || userCommand === "e") {
             btnEast_click();
         } else if (userCommand === "W" || userCommand === "w") {
             btnWest_click();
-        }  else { 
-          updateDisplay("You entered an invalid command. The valid commands are N,S,E,W or n,s,e,w!");
-        }
+        } else if (userCommand === "Help" || userCommand === "help") { 
+            updateDisplay("The valid directionals are N,S,E,W or n,s,e,w! The valid commands are Take, take, Inventory, or inventory");
+        } else if (userCommand === "Take" || userCommand === "take") {
+            //Call takeitem function; 
+        } else if (userCommand === "Inventory" || userCommand ==="inventory") {
+            //Call inventory function;
+        } else {
+            updateDisplay("That is an invalid input, press help for the list of valid directionals and commands");
        }
+      }
         
         function btnNorth_click() {
           if (currLoc === 0) { 
@@ -49,7 +50,7 @@
                   look();  
             }   else { 
                   navigationError();
-            }
+           }
           }
          }
         
@@ -104,7 +105,7 @@
         }
        }
       }
-       
+        
        function look() {
         var message = ""
         switch(currLoc) { 
@@ -201,51 +202,3 @@
           var target = document.getElementById("txtAnswer");
           target.value += message+"\n";
        }
-         
-    </script>
-  </head>
-<body onload="init();">
-  <p style="font-size: 50px; color:Magenta"> <strong> Adventures of Indiana Jones </strong> </p>  
-    
-       <img src="http://i.imgur.com/UMKFGWv.png?1" alt="Game Map"> 
-
-      <br> Score:<input type="text"
-                        id="txtScore"
-                        name="txtScore"> <br>
-    
-   <p> <textarea rows="10" cols="50" id="txtAnswer">  </textarea> </p> 
-   
-<p>  <input type="button"
-            value="North"
-            id="northBtn"
-            onclick="btnNorth_click();" />
-          
-     <input type="button"
-            value="East"
-            id="eastBtn"
-            onclick="btnEast_click();" />
-          
-     <input type="button"
-            value="South"
-            id="southBtn"
-            onclick="btnSouth_click();" />
-        
-     <input type="button"
-            value="West"
-            id="westBtn"
-            onclick="btnWest_click();" /> </p>
-          
-     <input type = "text"
-            id = "userInput"
-            name="userInput" />
-            
-     <input type="button"
-            value="Go"
-            onclick="btnGo_click();" />
-            
-    <p> Problem? Click <a href="mailto:gregory.potter2@marist.edu"> Here </a> </p>
-    
-    <p> Need to validate? Click <a href="http://validator.w3.org/#validate_by_input"> Here </a> </p>
-    
-</body>
-</html>
