@@ -64,8 +64,12 @@
   } if (chalace === true) {
       updateDisplay("chalace");
   }
+  updateDisplay("Inventory:");
  }
-    
+  function btn_inventory() {
+    inventory();
+ }
+ 
   function Room0_jungleFloor() {
     updateDisplay("You wake up on a jungle floor. You feel a sharp pain on your neck and upon inspection find a dart lodged in the left side. You come to the conclusion that you were were poisoned and knocked unconscious. You struggle to get to your feet but manage and realize your whip is nowhere in sight. Find your whip and then find the person who did this to you. The only thing in your posession is a vine, it may be useful later.");
 }

@@ -47,6 +47,10 @@
             onclick="btnWest_click();" /> 
             
      <input type="button"
+            value="inventory"
+            onclick="btn_inventory();" />
+            
+     <input type="button"
             value="Quit"
             id="btnQuit"
             onclick="btn_Quit();" /> </p>

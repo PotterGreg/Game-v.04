@@ -12,15 +12,6 @@
         mapVisibility();
         }
         
-        function disableButtonByObjectMap() {
-          if ( (currLoc === 4 && map === false) ) {
-            document.getElementById("northBtn").disabled = true;
-            document.getElementById("southBtn").disabled = true;
-            document.getElementById("westBtn").disabled = true;
-        
-       }
-      }
-        
         function btnGo_click() {
           var userCommand = document.getElementById("userInput").value;
           userCommand = userCommand.toUpperCase();
@@ -33,7 +24,7 @@
         } else if (userCommand === "W") {
             btnWest_click();
         } else if (userCommand === "HELP") { 
-            updateDisplay("The valid directionals are n, s, e, w, N, S, E, W, and the valid commands are TAKE, take, INVENTORY, or inventory. If you would like to quit press the quit button");
+            updateDisplay("The valid directionals are n, s, e, w, and the valid commands are TAKE, take, INVENTORY, or inventory. If you would like to quit press the quit button");
         } else if (userCommand === "TAKE") {
             takeItem(); 
         } else if (userCommand === "INVENTORY") {
