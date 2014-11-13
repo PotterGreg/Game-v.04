@@ -263,6 +263,8 @@
         
         function btn_Quit() {
           var loser = false;
+          health = 0;
+          healthBox();
           while(!loser) 
           alert("Whimp");
        }
