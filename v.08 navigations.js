@@ -46,47 +46,41 @@
             disableButton();
             checkHealth();
             hasVisitedRoom1 = true;
-            locations[1].description;
             break;
           case 1:
             currLoc = 2;
             disableButton();
             checkHealth();
-            locations[2].description;
             break;
           case 2:
             currLoc = 3;
             hasVisitedRoom3 = true;
             disableButton();
-            locations[3].description;
             break;
           case 4:
             currLoc = 3;
             hasVisitedRoom3 = true;
             disableButton();
-            locations[3].description;
             break;
           case 5:
             currLoc = 4;
             hasVisitedRoom4 = true;
             disableButton();
-            locations[4].description;
             break;
           case 7:
             currLoc = 6;
             disableButton();
             checkHealth();
-            locations[6].description;
             break;
           case 8:
             currLoc = 7;
             hasVisitedRoom7 = true;
             disableButton();
             checkHealth();
-            locations[7].description;
             break;
            }
             healthBox();
+            updateDisplay(locations[currLoc].description);
           }
         
         function btnSouth_click() { 
@@ -94,42 +88,37 @@
             case 1:
               currLoc = 0;
               disableButton();
-              locations[0].description;
               break;
             case 2:
               currLoc = 1;
               hasVisitedRoom1 = true;
               disableButton();
-              locations[1].description;
               break;
             case 3:
               currLoc = 4;
               hasVisitedRoom4 = true;
               disableButton();
-              locations[4].description;
               break;
             case 4:
               currLoc = 5
               hasVisitedRoom5 = true;
               disableButton();
-              locations[5].description;
               break;
             case 6:
               currLoc = 7
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
-              locations[7].description;
               break;
             case 7:
               currLoc = 8;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
-              locations[8].description;
               break;
            }
             healthBox();
+            updateDisplay(locations[currLoc].description);
           }
     
         function btnEast_click() {
@@ -138,24 +127,22 @@
               currLoc = 4;
               hasVisitedRoom4 = true;
               disableButton();
-              locations[4].description;
               break;
             case 5:
               currLoc = 7;
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
-              locations[7].description;
               break;
             case 8:
               currLoc = 9;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
-              locations[9].description;
               break;
      }
       healthBox();
+      updateDisplay(locations[currLoc].description);
     }
     
         function btnWest_click() { 
@@ -163,31 +150,25 @@
             case 4:
               currLoc = 6;
               disableButton();
-              locations[6].description;
               break;
             case 5:
               currLoc = 7;
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
-              locations[7].description;
               break;
             case 9:
               currLoc = 8;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
-              locations[8].description;
               break;
              
       }
         healthBox();
+        updateDisplay(locations[currLoc].description);
      }
         
-        function navigationError() {
-          updateDisplay("You cannot go that way!");
-       }
-      
         function checkHealth() {
           if  ( (! hasVisitedRoom1) && (currLoc === 1 ) ) {
               health -= 10;
@@ -234,15 +215,6 @@
             document.getElementById("westBtn").disabled = false;
        }
       }
-        
-        function mapVisibility() {
-          if (!itemMap.isTaken) {
-            document.getElementById("map2").style.visibility = "hidden";
-       }  else  {  
-            document.getElementById("map2").style.visibility = "visible";
-            document.getElementById("map1").style.visibility = "hidden";
-      }
-     }
         
         function healthBox(number) {
            var healthCounter = document.getElementById("txtHealth");

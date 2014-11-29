@@ -5,6 +5,7 @@
     updateDisplay(locations_0.description);
     disableButton();
     healthBox();
+    mapVisibility();
   }
 
   var items = new Array();
@@ -20,14 +21,32 @@
     inventory.push(items[currLoc].name);
     updateDisplay("You took the " + items[currLoc].name) + ".";
     items[currLoc].isTaken = true;
+    mapVisibility();
  }
  
  function displayInventory() {
     var inventMsg = "Inventory:" + inventory;
     updateDisplay(inventMsg);
  }
-
-  
+ 
+  function mapVisibility() {
+    if (itemMap.isTaken === true) {
+      document.getElementById("map2").style.visibility = "visible";
+      document.getElementById("map1").style.visibility = "hidden";
+  } else  {  
+      document.getElementById("map2").style.visibility = "hidden";
+  }
+ }
+ 
+  function healthBox(number) {
+   var healthCounter = document.getElementById("txtHealth");
+   healthCounter.value = health;
+ }
+       
+  function updateDisplay(message) { 
+   var target = document.getElementById("txtAnswer");
+   target.value = message+"\n\n"+target.value;
+ }
+ 
  
   
- 

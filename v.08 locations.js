@@ -143,3 +143,5 @@
       itemChalace.name = "Chalace";
       itemChalace.description = "There's a shiny chalace on the table";
       itemChalace.isTaken = false;
+      
+      
