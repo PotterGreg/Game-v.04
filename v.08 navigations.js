@@ -1,17 +1,10 @@
         var currLoc = 0;
-        var nextLoc = 0;
         var hasVisitedRoom1 = false;
         var hasVisitedRoom3 = false;
         var hasVisitedRoom5 = false;
         var hasVisitedRoom7 = false;
         var hasVisitedRoom8 = false;
 
-        function init() { 
-        lookLocation();
-        healthBox();
-        mapVisibility();
-        }
-        
         function btnGo_click() {
           var userCommand = document.getElementById("userInput").value;
           userCommand = userCommand.toUpperCase();
@@ -24,50 +17,27 @@
         } else if (userCommand === "W") {
             btnWest_click();
         } else if (userCommand === "HELP") { 
-            updateDisplay("The valid directionals are n, s, e, w, and the valid commands are TAKE, take, INVENTORY, or inventory. If you would like to quit press the quit button");
-        } else if (userCommand === "TAKE") {
-            takeItem(); 
+            updateDisplay("The valid directionals are n, s, e, w, and the valid commands are TAKE, take, INVENTORY, or inventory. If you would like to quit press the quit button"); 
         } else if (userCommand === "INVENTORY") {
-            inventory();
+            displayInventory(); 
+        } else if (userCommand === "TAKE") {
+            takeItem();
         } else {
             updateDisplay("That is an invalid input, press help for the list of valid directionals and commands");
        }
       }
-         
-         function lookLocation() {
-          switch(currLoc) { 
-            case 0:
-              Room0_jungleFloor();
-              break;
-            case 1:
-              room1_river();
-              break;
-            case 2:
-              room2_cave();
-              break;
-            case 3:
-              room3_dungeonEntrance();
-              break;
-            case 4:
-              room4_illuminatedRoom();
-              break;
-            case 5:
-              room5_snakeRoom();
-              break;
-            case 6:
-              room6_preperationRoom();
-              break;
-            case 7:
-              room7_foreignEnemies();
-              break;
-            case 8:
-              room8_finalBoss();
-              break;
-            case 9:
-              room9_chalaceRoom();
-              break;
-        }
-       }
+     
+          var locations = new Array( locations_0,
+                                      locations_1,
+                                      locations_2,
+                                      locations_3,
+                                      locations_4,
+                                      locations_5,
+                                      locations_6,
+                                      locations_7,
+                                      locations_8,
+                                      locations_9 );
+      
         
         function btnNorth_click() {
           switch(currLoc) {
@@ -76,40 +46,46 @@
             disableButton();
             checkHealth();
             hasVisitedRoom1 = true;
+            locations[1].description;
             break;
           case 1:
             currLoc = 2;
             disableButton();
             checkHealth();
+            locations[2].description;
             break;
           case 2:
             currLoc = 3;
             hasVisitedRoom3 = true;
             disableButton();
+            locations[3].description;
             break;
           case 4:
             currLoc = 3;
             hasVisitedRoom3 = true;
             disableButton();
+            locations[3].description;
             break;
           case 5:
             currLoc = 4;
             hasVisitedRoom4 = true;
             disableButton();
+            locations[4].description;
             break;
           case 7:
             currLoc = 6;
             disableButton();
             checkHealth();
+            locations[6].description;
             break;
           case 8:
             currLoc = 7;
             hasVisitedRoom7 = true;
             disableButton();
             checkHealth();
+            locations[7].description;
             break;
            }
-            lookLocation();
             healthBox();
           }
         
@@ -118,36 +94,41 @@
             case 1:
               currLoc = 0;
               disableButton();
+              locations[0].description;
               break;
             case 2:
               currLoc = 1;
               hasVisitedRoom1 = true;
               disableButton();
+              locations[1].description;
               break;
             case 3:
               currLoc = 4;
               hasVisitedRoom4 = true;
               disableButton();
+              locations[4].description;
               break;
             case 4:
               currLoc = 5
               hasVisitedRoom5 = true;
               disableButton();
+              locations[5].description;
               break;
             case 6:
               currLoc = 7
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
+              locations[7].description;
               break;
             case 7:
               currLoc = 8;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
+              locations[8].description;
               break;
            }
-            lookLocation();
             healthBox();
           }
     
@@ -157,21 +138,23 @@
               currLoc = 4;
               hasVisitedRoom4 = true;
               disableButton();
+              locations[4].description;
               break;
             case 5:
               currLoc = 7;
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
+              locations[7].description;
               break;
             case 8:
               currLoc = 9;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
+              locations[9].description;
               break;
      }
-      lookLocation();
       healthBox();
     }
     
@@ -180,23 +163,24 @@
             case 4:
               currLoc = 6;
               disableButton();
-              disableButtonByObjectMap();
+              locations[6].description;
               break;
             case 5:
               currLoc = 7;
               disableButton();
               checkHealth();
               hasVisitedRoom7 = true;
+              locations[7].description;
               break;
             case 9:
               currLoc = 8;
               disableButton();
               checkHealth();
               hasVisitedRoom8 = true;
+              locations[8].description;
               break;
              
       }
-        lookLocation();
         healthBox();
      }
         
@@ -252,7 +236,7 @@
       }
         
         function mapVisibility() {
-          if (map === false) {
+          if (!itemMap.isTaken) {
             document.getElementById("map2").style.visibility = "hidden";
        }  else  {  
             document.getElementById("map2").style.visibility = "visible";

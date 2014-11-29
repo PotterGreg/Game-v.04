@@ -5,16 +5,9 @@
     this.name = _name;
     this.description = _description;
     this.hasItem = _hasItem;
-    this.item = function() {
-      if (this.hasItem && locations[nextLocation]) {
-        return items[nextLocation].description;
-    } else { 
-        return "";
-     }
-    }
-    this.toString() = function() {
+    this.toString = function() {
       var returnVal = "";
-      returnVal = this.description + "" + this.item();
+      returnVal = this.description + "";
       return returnVal;
     }
    }
@@ -31,7 +24,7 @@
       locations_0.name = "Jungle Floor";
       locations_0.description = "You wake up on a jungle floor. You feel a sharp pain on your neck and upon inspection find " +
                                 "a dart lodged in the left   side.You come to the conclusion that you were were poisoned and " + 
-                                "knocked unconscious. You struggle to get to your feet but manageand realize your whip is " + 
+                                "knocked unconscious. You struggle to get to your feet but manage and realize your whip is " + 
                                 "nowhere in sight. Find your whip and then find the person who did this to you. You find a " +
                                 "vine to your side, it may be useful for later."
       locations_0.hasItem = true;

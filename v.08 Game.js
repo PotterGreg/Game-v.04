@@ -1,8 +1,10 @@
 // Game.js v.08
-var health = 100;
+  var health = 100;
 
   function init() {
-    updateDisplay(locations_0);
+    updateDisplay(locations_0.description);
+    disableButton();
+    healthBox();
   }
 
   var items = new Array();
@@ -14,7 +16,18 @@ var health = 100;
   
   var inventory = new Array();
   
-  function displayInventory() {
-    var invMsg = "Inventory:" + inventory;
-    updateDisplay(invMsg);
+  function takeItem() {
+    inventory.push(items[currLoc].name);
+    updateDisplay("You took the " + items[currLoc].name) + ".";
+    items[currLoc].isTaken = true;
  }
+ 
+ function displayInventory() {
+    var inventMsg = "Inventory:" + inventory;
+    updateDisplay(inventMsg);
+ }
+
+  
+ 
+  
+ 
