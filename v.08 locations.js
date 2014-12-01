@@ -1,4 +1,5 @@
- 
+// Game v.08 Locations.js
+   
    // Location prototype
    function Location(_id, _name, _description, _hasItem) {
     this.id = _id;
@@ -18,7 +19,7 @@
     this.description = _description;
     this.isTaken = _isTaken;
   }
-    // Locations 0-9 following "blueprint" or Location() prototype
+    // Instances of Locations 0-9 following "blueprint" or Location(); prototype
     var locations_0 = new Location(); 
       locations_0.id = 0;
       locations_0.name = "Jungle Floor";
@@ -113,7 +114,7 @@
                                 "like the cold night sky. You should drink from the fountain using the chalace."
       locations_9.hasItem = true;
       
-    // Items following the Items "blueprint"" 
+    // Instances of Items following the Items(); "blueprint"" 
     var itemVine = new Item();
       itemVine.id = 0;
       itemVine.name = "Vine";

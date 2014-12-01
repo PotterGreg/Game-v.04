@@ -1,3 +1,4 @@
+        // Global vars
         var currLoc = 0;
         var hasVisitedRoom1 = false;
         var hasVisitedRoom3 = false;
@@ -5,6 +6,7 @@
         var hasVisitedRoom7 = false;
         var hasVisitedRoom8 = false;
 
+        // userCommand Navigation, take, inventory, and help
         function btnGo_click() {
           var userCommand = document.getElementById("userInput").value;
           userCommand = userCommand.toUpperCase();
@@ -26,19 +28,20 @@
             updateDisplay("That is an invalid input, press help for the list of valid directionals and commands");
        }
       }
-     
-          var locations = new Array( locations_0,
-                                      locations_1,
-                                      locations_2,
-                                      locations_3,
-                                      locations_4,
-                                      locations_5,
-                                      locations_6,
-                                      locations_7,
-                                      locations_8,
-                                      locations_9 );
-      
         
+        // Global Array for Location instances
+        var locations = new Array( locations_0,
+                                    locations_1,
+                                    locations_2,
+                                    locations_3,
+                                    locations_4,
+                                    locations_5,
+                                    locations_6,
+                                    locations_7,
+                                    locations_8,
+                                    locations_9 );
+        
+        // Directionality + CurrLoc assignment 
         function btnNorth_click() {
           switch(currLoc) {
           case 0:
@@ -169,6 +172,7 @@
         updateDisplay(locations[currLoc].description);
      }
         
+        // Check health alters health after moving to certain rooms
         function checkHealth() {
           if  ( (! hasVisitedRoom1) && (currLoc === 1 ) ) {
               health -= 10;
@@ -179,6 +183,8 @@
         }
        }
        
+       
+       // Calls each disableButton function based on currLoc
         function disableButton() {
            disableButtonNorth();
            disableButtonSouth();
@@ -215,22 +221,4 @@
             document.getElementById("westBtn").disabled = false;
        }
       }
-        
-        function healthBox(number) {
-           var healthCounter = document.getElementById("txtHealth");
-           healthCounter.value = health;
-       }
        
-        function updateDisplay(message) { 
-          var target = document.getElementById("txtAnswer");
-          target.value = message+"\n\n"+target.value;
-       }
-        
-        
-        function btn_Quit() {
-          var loser = false;
-          health = 0;
-          healthBox();
-          while(!loser) 
-          alert("Whimp");
-       }
