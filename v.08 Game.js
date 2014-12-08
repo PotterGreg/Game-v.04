@@ -3,10 +3,10 @@
   
   // body on load function displays starting location description
   function init() {
-    updateDisplay(locations_0.description);
-    disableButton();
+    updateDisplay(locations_0);
     healthBox();
     mapVisibility();
+    disableButton();
   }
   
   // Items listen in a single array
@@ -22,11 +22,60 @@
   
   // Pushes items when user takes ("TAKE") 
   function takeItem() {
+    if (locations[currLoc].hasItem === false) {
+     updateDisplay("This location has no items to pick up");
+  } else {
     inventory.push(items[currLoc].name);
     updateDisplay("You took the " + items[currLoc].name) + ".";
     items[currLoc].isTaken = true;
     mapVisibility();
+  }
  }
+  
+  // Disallows navigation based on status of users inventory
+  function itemCheck(nextLoc) {
+      if (nextLoc === 1) {
+       if (itemVine.isTaken) {
+        updateDisplay(locations[nextLoc]);
+        currLoc = nextLoc;
+    } else {
+       updateDisplay("You shouldn't leave without taking " +
+                     "the vine.");
+    }
+   }
+      else if (nextLoc === 4) {
+       if (itemTorch.isTaken) {
+        updateDisplay(locations[nextLoc]);
+        currLoc = nextLoc;
+    } else {
+       updateDisplay("Proceeding without the torch" +
+                     "is a terrible idea");
+    }
+   }
+      else if (nextLoc === 5) {
+       if (itemMap.isTaken) {
+        updateDisplay(locations[nextLoc]);
+        currLoc = nextLoc;
+    } else {
+       updateDisplay("You'll never find your way around " +
+                     "without the map!");
+    } 
+   }
+      else if (nextLoc === 7) {
+       if (itemWhip.isTaken) {
+        updateDisplay(locations[nextLoc]);
+        currLoc = nextLoc;
+    } else {
+        updateDisplay("Get your whip first..... it " +
+                      "was one of your objectives..");
+    }
+   }
+      else {  
+       updateDisplay(locations[nextLoc]);
+       currLoc = nextLoc;
+    }
+   }
+        
  
  // Uses inventory global array to display inventory on userCommand
  function displayInventory() {
@@ -59,7 +108,7 @@
    function btn_Quit() {
     var loser = false;
     health = 0;
-    healthBox();
+    checkHealth();
     while(!loser) 
     alert("Whimp");
  }
