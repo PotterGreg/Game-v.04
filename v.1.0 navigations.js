@@ -42,6 +42,7 @@
                                     locations_8,
                                     locations_9 );
         
+        // Navigation via matrix array
         var nav = [ //  N     S    E    W
            /* 0 */  [   1,   -1,  -1,  -1],
            /* 1 */  [   2,    0,  -1,  -1],
@@ -55,6 +56,7 @@
            /* 9 */  [  -1,   -1,  -1,   8]
                    ];
          
+        // Directional functions 
         function btnNorth_click() {
         nextLocation(NORTH);
         disableButton();
@@ -75,6 +77,7 @@
         disableButton();
        }
        
+        // Function changes location + score
         function nextLocation(dir) {
         var nextLoc = nav[currLoc][dir];
         if (nextLoc >= 0) {
